@@ -33,12 +33,12 @@ function playRound(playerSelection, computerSelection){
 }
 // 3. play a game consists of 5 round
 //    - create a function game()
-function game(){
+function game(round){
     //- call playround() 5 times using for loop
     // keep track of the score inside variables
     let playerScore = 0;
     let computerScore = 0;
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < round; i++){
         // prompt user for choice
         var playerSelection = prompt("choose your weapon");
         // convert choice to lower case
@@ -81,5 +81,23 @@ function game(){
     else{console.log("Tie!")}
 }
 
-game()
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+let computerChoice = getComputerChoice();
 
+rock.addEventListener('click', () => {
+    computerChoice = getComputerChoice();
+    let winner = playRound('rock', computerChoice);
+    console.log(winner);
+});
+paper.addEventListener('click', () => {
+    computerChoice = getComputerChoice();
+    let winner = playRound('paper', computerChoice);
+    console.log(winner);
+});
+scissors.addEventListener('click', () => {
+    computerChoice = getComputerChoice();
+    let winner = playRound('scissors', computerChoice);
+    console.log(winner);
+});
