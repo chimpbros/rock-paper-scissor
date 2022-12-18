@@ -38,29 +38,20 @@ function playRound(playerSelection, computerSelection){
         return 0;
     }
 }
-function round(result){
-    // if player win increment playerscore by 1
-    if(result === 1){
-        playerScore++;
-        console.log("You Win! " + selectionLower + " beats " + computerSelection);
+// the first to 5 win
+function score(){
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    if(playerScore === 5){
+        gameInfo.textContent = 'Congratulations! You Win.';
+        playerScore = 0;
+        computerScore = 0;
     }
-    // if player lose increment computer score by 1
-    else if(result === 2){
-        computerScore++;
-        console.log("You Lose! " + computerSelection + " beats " + selectionLower);
+    if(computerScore === 5){
+        gameInfo.textContent = 'You Lose!';
+        playerScore = 0;
+        computerScore = 0;
     }
-    else{console.log("Tie");}
-    // print current score
-    console.log("Player Score: " + playerScore.toString());
-    console.log("Computer Score: " + computerScore.toString());
-    //    - reports the winner
-    if(playerScore > computerScore){
-        console.log("Congratulations, You Win!");
-    }
-    else if(computerScore > playerScore){
-        console.log("You Lose!");
-    }
-    else{console.log("Tie!")}
 }
 
 // function to execute when button clicked
@@ -77,16 +68,21 @@ const scissors = document.querySelector('#scissors');
 const gameInfo = document.querySelector('#game-info');
 const playerInfo = document.querySelector('#player-select');
 const computerInfo = document.querySelector('#computer-select');
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
 
 rock.addEventListener('click', () => {
     playEvent('rock');
+    score();
 });
 paper.addEventListener('click', () => {
     playEvent('paper');
+    score();
 });
 scissors.addEventListener('click', () => {
     playEvent('scissors');
+    score();
 });
