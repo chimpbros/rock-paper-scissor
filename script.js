@@ -38,19 +38,28 @@ function playRound(playerSelection, computerSelection){
         return 0;
     }
 }
+// reset game
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    selection.classList.toggle('invisible');
+    playButton.classList.toggle('invisible');
+    playButton.textContent = 'Play Again';
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+
+}
 // the first to 5 win
 function score(){
     playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
     computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
     if(playerScore === 5){
         gameInfo.textContent = 'Congratulations! You Win.';
-        playerScore = 0;
-        computerScore = 0;
+        resetGame();
     }
     if(computerScore === 5){
         gameInfo.textContent = 'You Lose!';
-        playerScore = 0;
-        computerScore = 0;
+        resetGame();
     }
 }
 
@@ -70,10 +79,14 @@ const playerInfo = document.querySelector('#player-select');
 const computerInfo = document.querySelector('#computer-select');
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
+const playButton = document.querySelector('#play');
+const selection = document.querySelector('#selection');
+const selectionDisplay = document.querySelector('#selection-display');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
 
+selection.classList.add('invisible');
 rock.addEventListener('click', () => {
     playEvent('rock');
     score();
@@ -86,3 +99,5 @@ scissors.addEventListener('click', () => {
     playEvent('scissors');
     score();
 });
+
+playButton.addEventListener('click', resetGame);
