@@ -8,5 +8,6 @@ display result
 5. the first to reach 5 is the winner
 6. when either player or computer reach 5, display the winner, hide the rps
 button and display play again button
+7. when Play Again button clicked, set gameInfo to empty, reset score display, hide the selection display
 
  
