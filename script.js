@@ -65,7 +65,6 @@ function score(){
 function playEvent(playerSelection){
     computerSelect = getComputerChoice();
     let result = playRound(playerSelection, computerSelect);
-    selectionDisplay.classList.remove('invisible');
     return result;
 }
 
@@ -104,10 +103,6 @@ playButton.addEventListener('click', () => {
         resetGame();
     }
     else{
-        resetGame();
-        gameInfo.textContent = '';
-        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
-        computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
-        selectionDisplay.classList.toggle('invisible');
+        window.location.reload();
     }
 });
