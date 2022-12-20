@@ -43,7 +43,7 @@ function resetGame(){
     playerScore = 0;
     computerScore = 0;
     selection.classList.toggle('invisible');
-    playButton.classList.toggle('invisible');
+    playButton.classList.toggle('hidden');
     playButton.textContent = 'Play Again';
 
 }

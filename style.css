@@ -1,7 +1,56 @@
+body{
+    background-color: #594545;
+    color: #FFF8EA;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 900;
+}
+
 .invisible {
+    visibility: hidden;
+}
+
+.hidden {
     display: none;
 }
 
-.visible {
-    display: block;
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+#game-info {
+    margin: 2em;
+    height: 30px;
+    font-size: 2em;
+}
+
+#selection-display {
+    margin:0.5em;
+    height: 30px;
+}
+
+#score-display{
+    margin: 0.5em;
+    height: 30px;
+}
+
+button{
+    background-color: #9E7676;
+    border: none;
+    color: #FFF8EA;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
 }
