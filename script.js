@@ -15,72 +15,89 @@ function getComputerChoice() {
 // 2. play a single round of rock paper scissors
 //    - create a function that plays a single round of RPS that takes two parameters - playerSelection and computerSelection
 function playRound(playerSelection, computerSelection){
+    playerInfo.textContent = `player: ${playerSelection}`;
+    computerInfo.textContent = `computer: ${computerSelection}`;
     // if(define condition for player win)
     if ((playerSelection === "rock" &&  computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")){
+        playerScore++;
+        gameInfo.textContent = `You Win!, ${playerSelection} beats ${computerSelection}`
         // return 1 if player wins
         return 1;
     }
     // else if(define condition for computer win)
     else if ((computerSelection === "rock" && playerSelection === "scissors") || (computerSelection === "paper" && playerSelection === "rock") || (computerSelection === "scissors" && playerSelection === "paper")){
         // return 2 if computer wins
+        computerScore++;
+        gameInfo.textContent = `You Lose!, ${computerSelection} beats ${playerSelection}`
         return 2;
     }
     // else
     else{
         // return 0 if tie
+        gameInfo.textContent = 'Tie'
         return 0;
     }
 }
-// 3. play a game consists of 5 round
-//    - create a function game()
-function game(result){
-    // keep track of the score inside variables
-    let playerScore = 0;
-    let computerScore = 0;
+// reset game
+function resetGame(){
+    playerScore = 0;
+    computerScore = 0;
+    selection.classList.toggle('invisible');
+    playButton.classList.toggle('invisible');
+    playButton.textContent = 'Play Again';
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
 
-    // if player win increment playerscore by 1
-    if(result === 1){
-        playerScore++;
-        announce.textContent = `You Win!`;
-    }
-    // if player lose increment computer score by 1
-    else if(result === 2){
-        computerScore++;
-        announce.textContent = `You Lose!`
-    }
-    else{announce.textContent = `Tie`;}
-    // print current score
-    console.log("Player Score: " + playerScore.toString());
-    console.log("Computer Score: " + computerScore.toString());
-    
-    //    - reports the winner
-    if(playerScore > computerScore){
-        console.log("Congratulations, You Win!");
-    }
-    else if(computerScore > playerScore){
-        console.log("You Lose!");
-    }
-    else{console.log("Tie!");}
 }
+// the first to 5 win
+function score(){
+    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    if(playerScore === 5){
+        gameInfo.textContent = 'Congratulations! You Win.';
+        resetGame();
+    }
+    if(computerScore === 5){
+        gameInfo.textContent = 'You Lose!';
+        resetGame();
+    }
+}
+
+// function to execute when button clicked
+function playEvent(playerSelection){
+    computerSelect = getComputerChoice();
+    let result = playRound(playerSelection, computerSelect);
+    return result;
+}
+
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-const announce = document.querySelector('#announce');
-let computerChoice;
+const gameInfo = document.querySelector('#game-info');
+const playerInfo = document.querySelector('#player-select');
+const computerInfo = document.querySelector('#computer-select');
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
+const playButton = document.querySelector('#play');
+const selection = document.querySelector('#selection');
+const selectionDisplay = document.querySelector('#selection-display');
+let computerSelect;
+let playerScore = 0;
+let computerScore = 0;
 
+selection.classList.add('invisible');
 rock.addEventListener('click', () => {
-    computerChoice = getComputerChoice();
-    let result = playRound('rock', computerChoice);
-    game(result);
+    playEvent('rock');
+    score();
 });
 paper.addEventListener('click', () => {
-    computerChoice = getComputerChoice();
-    let result = playRound('paper', computerChoice);
-    console.log(result);
+    playEvent('paper');
+    score();
 });
 scissors.addEventListener('click', () => {
-    computerChoice = getComputerChoice();
-    let result = playRound('scissors', computerChoice);
-    console.log(result);
+    playEvent('scissors');
+    score();
 });
+
+playButton.addEventListener('click', resetGame);
