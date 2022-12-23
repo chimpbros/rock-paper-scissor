@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: #594545;
     color: #FFF8EA;
@@ -53,4 +58,10 @@ button{
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
+}
+
+#selection > button {
+    height: 200px;
+    width: 200px;
+    padding: 0;
 }
