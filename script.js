@@ -43,10 +43,8 @@ function resetGame(){
     playerScore = 0;
     computerScore = 0;
     selection.classList.toggle('invisible');
-    playButton.classList.toggle('invisible');
+    playButton.classList.toggle('hidden');
     playButton.textContent = 'Play Again';
-    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
 
 }
 // the first to 5 win
@@ -100,4 +98,11 @@ scissors.addEventListener('click', () => {
     score();
 });
 
-playButton.addEventListener('click', resetGame);
+playButton.addEventListener('click', () => {
+    if(playButton.textContent === 'Play'){
+        resetGame();
+    }
+    else{
+        window.location.reload();
+    }
+});

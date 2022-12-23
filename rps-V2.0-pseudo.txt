@@ -1,0 +1,6 @@
+1. change the layout of the buttons
+2. add container for selection display
+3. change the button icon
+4. add mouse-hover effect to the selection button
+5. add glow effect to the winner on the selection display
+6. add moving effect to the selection button from initial position to selection display
