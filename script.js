@@ -42,7 +42,7 @@ function playRound(playerSelection, computerSelection){
 function resetGame(){
     playerScore = 0;
     computerScore = 0;
-    selection.classList.toggle('invisible');
+    display.forEach(item => item.classList.toggle('invisible'));
     playButton.classList.toggle('hidden');
     playButton.textContent = 'Play Again';
 
@@ -78,13 +78,13 @@ const computerInfo = document.querySelector('#computer-select');
 const playerScoreDisplay = document.querySelector('#player-score');
 const computerScoreDisplay = document.querySelector('#computer-score');
 const playButton = document.querySelector('#play');
-const selection = document.querySelector('#selection');
 const selectionDisplay = document.querySelector('#selection-display');
+const display = document.querySelectorAll('.display');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
 
-selection.classList.add('invisible');
+display.forEach(item => item.classList.add('invisible'));
 rock.addEventListener('click', () => {
     playEvent('rock');
     score();

@@ -13,21 +13,23 @@
         <button id="play">Play</button>
     </div>
     <div class="main-container">
-        <div id="selection" class="btn">
+        <div id="selection" class="btn display">
             <button id="rock" class="display"><img src="images/rock.png" alt="rock"></button>
             <button id="paper" class="display"><img src="images/paper.png" alt="paper"></button>
             <button id="scissors" class="display"><img src="images/scissors.png" alt="scissors"></button>
         </div>
         <div class="info-container">
             <div id="game-info" class="info"></div>
-            <div id="score-display" class="info">
-                <div id="player-score"></div>
-                <div id="computer-score"></div>
-            </div>
             <div id="selection-display" class="info">
-                <div id="player-select" class="display"></div>
-                <div>VS</div>
-                <div id="computer-select" class="display"></div>
+                <div class="selection-container">
+                    <div id="player-score" class="score"></div>
+                    <div id="player-select" class="display"></div>
+                </div>
+                <div id="vs" class="display">VS</div>
+                <div class="selection-container">
+                    <div id="computer-score" class="score"></div>
+                    <div id="computer-select" class="display"></div>
+                </div>
             </div>
         </div>
         <div id="computer-selection">

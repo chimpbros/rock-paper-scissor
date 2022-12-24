@@ -23,12 +23,6 @@ h1 {
     display: none;
 }
 
-.btn {
-    display: flex;
-    justify-content: center;
-    gap: 2em;
-}
-
 .info {
     display: flex;
     justify-content: center;
@@ -43,6 +37,8 @@ h1 {
 
 #selection-display {
     margin:0.5em;
+    display: flex;
+    align-items: center;
 }
 
 #score-display{
@@ -68,6 +64,12 @@ button{
 #selection {
     display: flex;
     flex-direction: column;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    background-color: unset;
 }
 
 .display {
@@ -87,4 +89,15 @@ button{
 img {
     max-width: 100%;
     max-height: 100%;
+}
+
+.score {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#vs {
+    height: unset;
+    width: unset;
+    background-color: unset;
 }
