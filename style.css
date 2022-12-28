@@ -101,3 +101,7 @@ img {
     width: unset;
     background-color: unset;
 }
+
+.play-container {
+    height: 100vh;
+}

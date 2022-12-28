@@ -45,7 +45,6 @@ function resetGame(){
     display.forEach(item => item.classList.toggle('invisible'));
     playButton.classList.toggle('hidden');
     playButton.textContent = 'Play Again';
-
 }
 // the first to 5 win
 function score(){
@@ -80,10 +79,13 @@ const computerScoreDisplay = document.querySelector('#computer-score');
 const playButton = document.querySelector('#play');
 const selectionDisplay = document.querySelector('#selection-display');
 const display = document.querySelectorAll('.display');
+const mainContainer = document.querySelector('.main-container');
+const playContainer = document.querySelector('.play-container');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
 
+mainContainer.classList.add('invisible');
 display.forEach(item => item.classList.add('invisible'));
 rock.addEventListener('click', () => {
     playEvent('rock');
@@ -101,6 +103,7 @@ scissors.addEventListener('click', () => {
 playButton.addEventListener('click', () => {
     if(playButton.textContent === 'Play'){
         resetGame();
+        mainContainer.classList.toggle('invisible');
     }
     else{
         window.location.reload();
