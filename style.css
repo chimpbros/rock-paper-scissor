@@ -20,7 +20,7 @@ h1 {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .info {
@@ -103,5 +103,7 @@ img {
 }
 
 .play-container {
-    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

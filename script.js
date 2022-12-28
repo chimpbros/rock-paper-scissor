@@ -46,6 +46,19 @@ function resetGame(){
     playButton.classList.toggle('hidden');
     playButton.textContent = 'Play Again';
 }
+// toggle play-container
+function playToggle(){
+    playContainer.classList.toggle('hidden');
+}
+// shrink the container
+function shrink(){
+    playContainer.style.height = 'auto';
+    mainContainer.style.height = 'auto';
+    playerContainer.classList.toggle('hidden');
+    computerContainer.classList.toggle('hidden');
+    mainContainer.style.cssText = 'justify-content : center;';
+    selectionDisplay.classList.toggle('hidden');
+}
 // the first to 5 win
 function score(){
     playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
@@ -53,10 +66,14 @@ function score(){
     if(playerScore === 5){
         gameInfo.textContent = 'Congratulations! You Win.';
         resetGame();
+        playToggle();
+        shrink();
     }
     if(computerScore === 5){
         gameInfo.textContent = 'You Lose!';
         resetGame();
+        playToggle();
+        shrink();
     }
 }
 
@@ -81,11 +98,14 @@ const selectionDisplay = document.querySelector('#selection-display');
 const display = document.querySelectorAll('.display');
 const mainContainer = document.querySelector('.main-container');
 const playContainer = document.querySelector('.play-container');
+const playerContainer = document.querySelector('#selection');
+const computerContainer =document.querySelector('#computer-selection');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
 
-mainContainer.classList.add('invisible');
+mainContainer.classList.add('hidden');
+playContainer.style.height = '90vh';
 display.forEach(item => item.classList.add('invisible'));
 rock.addEventListener('click', () => {
     playEvent('rock');
@@ -103,7 +123,8 @@ scissors.addEventListener('click', () => {
 playButton.addEventListener('click', () => {
     if(playButton.textContent === 'Play'){
         resetGame();
-        mainContainer.classList.toggle('invisible');
+        mainContainer.classList.toggle('hidden');
+        playToggle();
     }
     else{
         window.location.reload();
