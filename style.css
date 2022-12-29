@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -76,14 +77,23 @@ button{
     height: 150px;
     width: 150px;
     padding: 0;
-    background-color: #9E7676;
+    background-color: var(--background-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    --background-color : #9E7676;
+    --border-size: 2px;
 }
 
 #computer-selection {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2em;
+    height: auto;
+    width: auto;
 }
 
 img {
@@ -106,4 +116,28 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#selection > button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    border: var(--border-size) solid var(--background-color);
+}
+
+#selection > button:hover::before, 
+#selection > button:focus::before {
+    top: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+    transition: top, left, bottom, right, 100ms ease-in-out;
+}
+
+#selection > button:focus::before {
+    border: var(--border-size) solid #FFF8EA;
 }

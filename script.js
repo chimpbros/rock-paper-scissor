@@ -84,6 +84,11 @@ function playEvent(playerSelection){
     return result;
 }
 
+// highlight computer selection
+function highlightComputerChoice(choice) {
+    
+}
+
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
@@ -100,6 +105,9 @@ const mainContainer = document.querySelector('.main-container');
 const playContainer = document.querySelector('.play-container');
 const playerContainer = document.querySelector('#selection');
 const computerContainer =document.querySelector('#computer-selection');
+const computerRock = document.querySelector('.rock');
+const computerPaper = document.querySelector('.paper');
+const computerScissors = document.querySelector('.scissors');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
