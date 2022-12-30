@@ -129,15 +129,10 @@ img {
     border: var(--border-size) solid var(--background-color);
 }
 
-#selection > button:hover::before, 
-#selection > button:focus::before {
+#selection > button:hover::before {
     top: calc(var(--border-size) * -2);
     left: calc(var(--border-size) * -2);
     bottom: calc(var(--border-size) * -2);
     right: calc(var(--border-size) * -2);
     transition: top, left, bottom, right, 100ms ease-in-out;
-}
-
-#selection > button:focus::before {
-    border: var(--border-size) solid #FFF8EA;
 }
