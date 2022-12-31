@@ -118,6 +118,7 @@ img {
     align-items: center;
 }
 
+/*
 #selection > button::before {
     content: '';
     position: absolute;
@@ -136,3 +137,5 @@ img {
     right: calc(var(--border-size) * -2);
     transition: top, left, bottom, right, 100ms ease-in-out;
 }
+*/
+

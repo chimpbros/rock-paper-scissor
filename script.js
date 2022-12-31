@@ -84,8 +84,8 @@ function playEvent(playerSelection){
     return result;
 }
 
-// highlight computer selection
-function highlightComputerChoice(choice) {
+// add hover effect
+function hoverEffect() {
     
 }
 
@@ -118,17 +118,14 @@ display.forEach(item => item.classList.add('invisible'));
 rock.addEventListener('click', () => {
     playEvent('rock');
     score();
-    rock.style.backgroundColor = 'white';
 });
 paper.addEventListener('click', () => {
     playEvent('paper');
     score();
-    paper.style.backgroundColor = 'white';
 });
 scissors.addEventListener('click', () => {
     playEvent('scissors');
     score();
-    scissors.style.backgroundColor = 'white';
 });
 
 playButton.addEventListener('click', () => {
