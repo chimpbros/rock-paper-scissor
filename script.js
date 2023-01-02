@@ -15,8 +15,8 @@ function getComputerChoice() {
 // 2. play a single round of rock paper scissors
 //    - create a function that plays a single round of RPS that takes two parameters - playerSelection and computerSelection
 function playRound(playerSelection, computerSelection){
-    playerInfo.textContent = `player: ${playerSelection}`;
-    computerInfo.textContent = `computer: ${computerSelection}`;
+    playerInfo.textContent = playerScore;
+    computerInfo.textContent = computerScore;
     // if(define condition for player win)
     if ((playerSelection === "rock" &&  computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") || (playerSelection === "scissors" && computerSelection === "paper")){
         playerScore++;
@@ -53,16 +53,15 @@ function playToggle(){
 // shrink the container
 function shrink(){
     playContainer.style.height = 'auto';
-    mainContainer.style.height = 'auto';
     playerContainer.classList.toggle('hidden');
     computerContainer.classList.toggle('hidden');
-    mainContainer.style.cssText = 'justify-content : center;';
+    mainContainer.style.cssText = 'justify-content : center; height: auto;';
     selectionDisplay.classList.toggle('hidden');
 }
 // the first to 5 win
 function score(){
-    playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+    playerScoreDisplay.textContent = `Player Score:`;
+    computerScoreDisplay.textContent = `Computer Score:`;
     if(playerScore === 5){
         gameInfo.textContent = 'Congratulations! You Win.';
         resetGame();

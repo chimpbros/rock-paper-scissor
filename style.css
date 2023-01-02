@@ -8,12 +8,14 @@ body{
     background-color: #594545;
     color: #FFF8EA;
     height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 h1 {
     text-align: center;
     font-size: 3em;
     font-weight: 900;
+    padding-top: 50px;
 }
 
 .invisible {
@@ -58,8 +60,9 @@ button{
 
 .main-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 70%;
 }
 
 #selection {
@@ -144,6 +147,18 @@ img {
 
 #computer-selection > .display {
     position: relative;
+}
+
+#player-select, #computer-select {
+    font-size: 3rem;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 150px;
 }
 /*
 #selection > button::before {
