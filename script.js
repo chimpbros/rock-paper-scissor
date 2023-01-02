@@ -81,6 +81,18 @@ function score(){
 function playEvent(playerSelection){
     computerSelect = getComputerChoice();
     let result = playRound(playerSelection, computerSelect);
+    if(computerSelect === 'rock'){
+        computerRock.classList.add('clicked');
+    }
+    else if(computerSelect === 'paper'){
+        computerPaper.classList.add('clicked');
+    }
+    else{
+        computerScissors.classList.add('clicked');
+    }
+    setTimeout(function () {
+        computerButton.forEach(item => item.classList.remove('clicked'));
+    }, 1000);
     return result;
 }
 
@@ -105,6 +117,7 @@ const computerRock = document.querySelector('.rock');
 const computerPaper = document.querySelector('.paper');
 const computerScissors = document.querySelector('.scissors');
 const selectionButtons = document.querySelectorAll('#selection button');
+const computerButton = document.querySelectorAll('#computer-selection > .display');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
@@ -125,14 +138,14 @@ scissors.addEventListener('click', () => {
     score();
 });
 
-// add hover effect to the button
+// add hover and click effect to the button
 selectionButtons.forEach(function(item) {
     item.addEventListener('mouseenter', () => item.classList.add('hover'));
     item.addEventListener('click', () => {
         item.classList.add('clicked')
+        // set timeout for click effect
         setTimeout(function () {
             selectionButtons.forEach(item => item.classList.remove('clicked'));
-            console.log('hello');
         }, 1000);
 });
 });

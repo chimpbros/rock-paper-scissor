@@ -141,6 +141,10 @@ img {
     transition: top, 100ms ease-in-out;
     background-color: white;
 }
+
+#computer-selection > .display {
+    position: relative;
+}
 /*
 #selection > button::before {
     content: '';
