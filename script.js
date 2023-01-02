@@ -84,10 +84,6 @@ function playEvent(playerSelection){
     return result;
 }
 
-// add hover effect
-function hoverEffect() {
-    
-}
 
 
 const rock = document.querySelector('#rock');
@@ -108,6 +104,7 @@ const computerContainer =document.querySelector('#computer-selection');
 const computerRock = document.querySelector('.rock');
 const computerPaper = document.querySelector('.paper');
 const computerScissors = document.querySelector('.scissors');
+const selectionButtons = document.querySelectorAll('#selection button');
 let computerSelect;
 let playerScore = 0;
 let computerScore = 0;
@@ -127,6 +124,21 @@ scissors.addEventListener('click', () => {
     playEvent('scissors');
     score();
 });
+
+// add hover effect to the button
+selectionButtons.forEach(function(item) {
+    item.addEventListener('mouseenter', () => item.classList.add('hover'));
+    item.addEventListener('click', () => {
+        item.classList.add('clicked')
+        setTimeout(function () {
+            selectionButtons.forEach(item => item.classList.remove('clicked'));
+            console.log('hello');
+        }, 1000);
+});
+});
+
+// remove hover effect
+selectionButtons.forEach(item => item.addEventListener('mouseleave', () => item.classList.remove('hover')));
 
 playButton.addEventListener('click', () => {
     if(playButton.textContent === 'Play'){

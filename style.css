@@ -78,7 +78,6 @@ button{
     width: 150px;
     padding: 0;
     background-color: var(--background-color);
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,6 +117,30 @@ img {
     align-items: center;
 }
 
+.selection-item {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+#selection button {
+    position: absolute;
+    padding: 0;
+    border:  var(--border-size) solid var(--background-color);
+    height: 150px;
+    width: 150px;
+}
+
+.hover {
+    top: -10px;
+    transition: top, 100ms ease-in-out;
+}
+
+.clicked {
+    top: -10px;
+    transition: top, 100ms ease-in-out;
+    background-color: white;
+}
 /*
 #selection > button::before {
     content: '';
